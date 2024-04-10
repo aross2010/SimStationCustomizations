@@ -7,14 +7,14 @@ import java.util.List;
 
 public class Simulation extends Model {
     protected int clock = 0;
-    List<Agent> agents;
+    protected List<Agent> agents;
 
     public void start() {
-        // TODO
+        // TODO - calls populate
     }
 
     public void suspend() {
-        // TODO
+        // TODO - call suspend method for all agents
     }
 
     public void resume() {
@@ -26,12 +26,13 @@ public class Simulation extends Model {
     }
 
     public Agent getNeighbor(Agent a, double radius) {
-        // TODO
+        // TODO - return a random agent that is a neighbor or null
         return null;
     }
 
+
     public void populate() {
-        // TODO
+        // TODO - creates all the agents - override in customization
     }
 
 }

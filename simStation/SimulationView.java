@@ -14,7 +14,7 @@ public class SimulationView extends View {
 
     @Override
     public void update() {
-        // TODO
+        // TODO - loop through agents and draw dots for each
     }
 
 }
