@@ -1,4 +1,5 @@
 package simStation;
+import mvc.*;
 
 import java.io.Serializable;
 

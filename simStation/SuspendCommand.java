@@ -10,7 +10,7 @@ public class SuspendCommand extends Command {
     }
 
     @Override
-    public void execute() {
+    public void execute() throws Exception {
         // TODO
     }
 }

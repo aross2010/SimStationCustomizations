@@ -12,6 +12,10 @@ public class Simulation extends Model {
     public void start() {
         // TODO - calls populate
     }
+    public void stats() {
+        // gets the stats
+        //Utilities.inform()
+    }
 
     public void suspend() {
         // TODO - call suspend method for all agents
