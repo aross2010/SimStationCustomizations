@@ -47,6 +47,6 @@ public class SimStationFactory implements AppFactory {
     @Override
     public String about() {
         // Override in each customization
-        return null;
+        return " CS151 assignment by Minh Phong Do, Alex Ross and Yossef Eini 2024";
     }
 }

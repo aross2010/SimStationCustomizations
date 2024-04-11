@@ -12,5 +12,6 @@ public class StartCommand extends Command {
     @Override
     public void execute() throws Exception {
         // TODO
+
     }
 }

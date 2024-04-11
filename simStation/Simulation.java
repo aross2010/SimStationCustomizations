@@ -6,15 +6,19 @@ import java.util.List;
 
 
 public class Simulation extends Model {
-    protected int clock = 0;
-    protected List<Agent> agents;
+    protected static int clock = 0;
+    protected static List<Agent> agents;
 
     public void start() {
         // TODO - calls populate
+        populate();
+
+
     }
-    public void stats() {
-        // gets the stats
-        //Utilities.inform()
+    public static String[] getStats() //returns the number of agents. useful for stats
+    {
+        String[] stats = {String.valueOf(agents.size()), String.valueOf(clock)};
+        return stats;
     }
 
     public void suspend() {
@@ -37,6 +41,7 @@ public class Simulation extends Model {
 
     public void populate() {
         // TODO - creates all the agents - override in customization
+
     }
 
 }
