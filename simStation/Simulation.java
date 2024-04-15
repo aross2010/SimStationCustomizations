@@ -31,18 +31,22 @@ public class Simulation extends Model {
         }
         changed();
     }
-    public static String[] getStats() //returns the number of agents. useful for stats
-    {
-        String[] stats = {String.valueOf(agents.size()), String.valueOf(clock)};
-        return stats;
-    }
+
 
     public void suspend() {
-        // TODO - call suspend method for all agents
+        stopTimer();
+        for (Agent agent : agents) {
+            agent.suspend();
+        }
+        changed();
     }
 
     public void resume() {
-        // TODO
+        startTimer();
+        for (Agent agent : agents) {
+            agent.resume();
+        }
+        changed();
     }
 
     public void stop() {

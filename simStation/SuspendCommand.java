@@ -12,5 +12,7 @@ public class SuspendCommand extends Command {
     @Override
     public void execute() throws Exception {
         // TODO
+        Simulation a = (Simulation) model;
+        a.suspend();
     }
 }

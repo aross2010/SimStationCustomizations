@@ -61,6 +61,7 @@ public abstract class Agent implements Runnable, Serializable {
     }
 
     public synchronized void resume() {
+        suspended = false;
         notify();
     }
 
