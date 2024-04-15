@@ -4,7 +4,6 @@ import mvc.Command;
 import mvc.Model;
 import mvc.Utilities;
 
-import static simStation.Simulation.getStats;
 
 public class StatsCommand extends Command {
 
@@ -14,8 +13,8 @@ public class StatsCommand extends Command {
 
     @Override
     public void execute() throws Exception {
-        // TODO
-        Utilities.inform(getStats());
+        // TODO - Override in customization
+        Utilities.inform(((Simulation)model).getStats());
     }
 
 }

@@ -3,18 +3,29 @@ package simStation;
 import mvc.Model;
 import mvc.View;
 
+import java.awt.*;
+
 public class SimulationView extends View {
-    // TODO
 
     public SimulationView(Model model) {
         super(model);
-
-        // TODO
+        setBackground(Color.GRAY);
     }
 
-    @Override
-    public void update() {
-        // TODO - loop through agents and draw dots for each
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Color oldColor = g.getColor();
+
+        g.setColor(Color.GRAY);
+
+        for (Agent agent : Simulation.agents){
+            g.setColor(agent.color);
+            g.fillOval(agent.xc, agent.yc, 5,5);
+        }
+
+        g.setColor(oldColor);
+
     }
+
 
 }

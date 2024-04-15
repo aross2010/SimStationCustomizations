@@ -3,36 +3,37 @@ import mvc.*;
 
 import java.io.Serializable;
 
+
+
 public abstract class Agent implements Runnable, Serializable {
+    private final int MAX_XC = 500;
+    private final int MAX_YC = 300;
+
     protected Simulation world;
-    protected Heading heading;
-    int xc;
-    int yc;
-    boolean suspended = false;
-    boolean stopped = false;
-    Thread myThread;
+    protected String name;
+    int xc = Utilities.rng.nextInt(MAX_XC);
+    int yc = Utilities.rng.nextInt(MAX_YC);
+    protected Heading heading = Heading.random();
+    private boolean suspended = false;
+    private boolean stopped = false;
+    transient protected Thread myThread;
+    protected Color color = Color.WHITE;
+
 
     @Override
     public void run() {
-        // TODO - calls update, falls asleep - when stopped is true, exit while loop
+        // calls update, falls asleep - when stopped is true, exit while loop
         myThread = Thread.currentThread();
         while (!isStopped()) {
             try {
                 update();
-                Thread.sleep(1000);
+                Thread.sleep(20);
                 checkSuspended();
             } catch (InterruptedException e) {
-                System.out.println(e.getMessage());
+                Utilities.error(e.getMessage());
             }
         }
-    }
-
-    public synchronized void join() {
-        try {
-            if (myThread != null) myThread.join();
-        } catch(InterruptedException e) {
-            System.out.println(e.getMessage());
-        }
+        world.changed();
     }
 
     public synchronized boolean isStopped() {
@@ -46,12 +47,13 @@ public abstract class Agent implements Runnable, Serializable {
                 suspended = false;
             }
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            Utilities.error(e.getMessage());
         }
     }
 
     public void start() {
-        // TODO
+        myThread = new Thread(this);
+        myThread.start();
     }
 
     public synchronized void suspend() {
@@ -66,12 +68,43 @@ public abstract class Agent implements Runnable, Serializable {
         stopped = true;
     }
 
-    // TODO - override in customization
-    public abstract void update();
+    private void moveNorth() { //higher y is going down. the lower y the higher it is on the screen
+        yc = (yc + 1) % MAX_YC;
+    }
+
+    private void moveSouth() {
+        yc = (yc - 1 + MAX_YC) % MAX_YC;
+    }
+
+    private void moveEast() {
+        xc = (xc + 1) % MAX_XC;
+    }
+
+    private void moveWest() {
+        xc = (xc - 1 + MAX_XC) % MAX_XC;
+    }
 
     public void move(int steps) {
-
-        // TODO
+        for (int i = 0; i < steps; i++) {
+            switch (heading) {
+                case NORTH:
+                    moveNorth();
+                    break;
+                case SOUTH:
+                    moveSouth();
+                    break;
+                case WEST:
+                    moveWest();
+                    break;
+                case EAST:
+                    moveEast();
+                    break;
+            }
+            world.changed();
+        }
     }
+
+    // TODO - override in customization
+    public abstract void update();
 
 }

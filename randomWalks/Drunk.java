@@ -5,6 +5,7 @@ import simStation.Heading;
 import mvc.Utilities;
 
 public class Drunk extends Agent {
+
     public Drunk() {
         super();
         heading = Heading.random();
