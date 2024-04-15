@@ -6,8 +6,7 @@ import simStation.Simulation;
 import simStation.SimulationPanel;
 
 public class FlockingSimulation extends Simulation {
-    private final int NUM_OF_BIRDS = 20;
-    private final int MAX_SPEED = 5;
+    private final int NUM_OF_BIRDS = 100;
 
     @Override
     public void populate() {
@@ -17,7 +16,7 @@ public class FlockingSimulation extends Simulation {
 
     @Override
     public String[] getStats(){
-        int[] stats = new int[MAX_SPEED];
+        int[] stats = new int[Bird.MAX_SPEED];
         for (Agent agent: agents) {
             int speed = ((Bird)agent).speed;
             switch(speed) {
@@ -44,7 +43,7 @@ public class FlockingSimulation extends Simulation {
             }
         }
 
-        String[] statsMessage = new String[MAX_SPEED];
+        String[] statsMessage = new String[Bird.MAX_SPEED];
         
         for (int i = 0; i < statsMessage.length; i++) {
             statsMessage[i] = String.format("# of birds at Speed %d: %d", i+1, stats[i]);
