@@ -50,7 +50,11 @@ public class Simulation extends Model {
     }
 
     public void stop() {
-        // TODO
+        stopTimer();
+        for (Agent agent : agents) {
+            agent.stop();
+        }
+        changed();
     }
 
     public void addAgent(Agent agent) {
