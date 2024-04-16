@@ -10,9 +10,10 @@ public class PlagueSimulation extends Simulation {
 
     public static int VIRULENCE = 50; // % chance of infection
     public static int RESISTANCE = 2; // % chance of resisting infection
-    public static int INITIALINFECTED = 50; //chance of a plague agent to be initially infected
+    public static int INITIALINFECTED = 10; //chance of a plague agent to be initially infected
+    public static int CONTAGIOUSVALUE = 25; //how contagious is the disease
     public void populate() {
-        for (int i = 1; i < 21; i++) {
+        for (int i = 1; i < 51; i++) {
             Plague plagueAgent = new Plague();
             addAgent(plagueAgent);
             if ((Utilities.rng.nextInt(100) + 1) <= INITIALINFECTED)
