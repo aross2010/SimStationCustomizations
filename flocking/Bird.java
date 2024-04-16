@@ -5,7 +5,7 @@ import simStation.Agent;
 import simStation.Heading;
 
 public class Bird extends Agent {
-    public static final int MAX_SPEED = 10;
+    public static final int MAX_SPEED = 5;
     private final int RADIUS = 100;
 
     protected int speed;
