@@ -1,5 +1,4 @@
 package prisoners_dilemma;
-
 import mvc.Model;
 import simStation.SimStationFactory;
 

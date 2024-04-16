@@ -11,6 +11,7 @@ public class ResumeCommand extends Command {
 
     @Override
     public void execute() throws Exception {
-        // TODO
+        Simulation a = (Simulation) model;
+        a.resume();
     }
 }

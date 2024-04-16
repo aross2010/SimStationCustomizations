@@ -1,5 +1,4 @@
 package prisoners_dilemma;
-
 import mvc.AppPanel;
 import simStation.Simulation;
 import simStation.SimulationPanel;
@@ -98,4 +97,3 @@ public class PrisonerSimulation extends Simulation {
         AppPanel panel = new SimulationPanel(new PrisonerFactory());
         panel.display();
     }
-}

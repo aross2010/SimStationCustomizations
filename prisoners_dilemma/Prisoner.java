@@ -80,4 +80,3 @@ public class Prisoner extends Agent {
             partner.partnercheated = true;
         }
     }
-}

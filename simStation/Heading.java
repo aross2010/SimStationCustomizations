@@ -1,5 +1,9 @@
 package simStation;
 
+import mvc.Utilities;
+
+import java.util.Random;
+
 public enum Heading {
     NORTH, EAST, SOUTH, WEST;
 
@@ -13,10 +17,14 @@ public enum Heading {
     }
 
     public static Heading random() {
-        // TODO - return random heading
-        return WEST;
-    }
+        int randomNum = Utilities.rng.nextInt(4) + 1;
 
+        if (randomNum == 1) return NORTH;
+        else if (randomNum == 2) return WEST;
+        else if (randomNum == 3) return SOUTH;
+        else if (randomNum == 4) return EAST;
+        else return null;
+    }
 
 
 }
