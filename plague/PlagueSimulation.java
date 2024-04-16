@@ -11,7 +11,7 @@ public class PlagueSimulation extends Simulation {
     public static int VIRULENCE = 50; // % chance of infection
     public static int RESISTANCE = 2; // % chance of resisting infection
     public static int INITIALINFECTED = 10; //chance of a plague agent to be initially infected
-    public static int CONTAGIOUSVALUE = 25; //how contagious is the disease
+    public static int CONTAGIOUSVALUE = 30; //how contagious is the disease
     public void populate() {
         for (int i = 1; i < 71; i++) {
             Plague plagueAgent = new Plague();
@@ -45,7 +45,7 @@ public class PlagueSimulation extends Simulation {
    }
     public String[] getStats()
     {
-        String[] stats = {"agents = " + String.valueOf(agents.size()), "clock = " + String.valueOf(clock), "Infected = %" + percentInfected()};
+        String[] stats = {"agents = " + String.valueOf(agents.size()), "clock = " + String.valueOf(clock), "Infected = " + percentInfected() + "%"};
         return stats;
     }
 
