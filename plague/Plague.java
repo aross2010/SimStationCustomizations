@@ -41,11 +41,11 @@ public class Plague extends Agent
         }
         if (infected)
         {
-            color = Color.RED;
+            color = Color.RED; //color of infected
         }
         else
         {
-            color = Color.GREEN;
+            color = Color.GREEN; //color of uninfected
         }
 
     }
