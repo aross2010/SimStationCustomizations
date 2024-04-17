@@ -5,7 +5,8 @@ import simStation.Simulation;
 import simStation.SimulationPanel;
 
 public class PrisonerSimulation extends Simulation {
-    private final int POPULATION = 40;
+    private final int INITIALPOPULATION = 40;
+    private int sumPopulation;
     private int sumFitCoop;
     private int sumFitCheat;
     private int sumFitRanCoop;
@@ -35,26 +36,30 @@ public class PrisonerSimulation extends Simulation {
     }
 
     public void populate() {
-        int quarter = (POPULATION/4);
+        int quarter = INITIALPOPULATION / 4;
         for (int i = 0; i < quarter; i ++) {
             Prisoner prison = new Prisoner();
             prison.setStrategy(new Cheat(prison));
             addAgent(prison);
+            sumPopulation++;
         }
         for (int i = 0; i < quarter; i ++) {
             Prisoner prison = new Prisoner();
             prison.setStrategy(new Cooperate(prison));
             addAgent(prison);
+            sumPopulation++;
         }
         for (int i = 0; i < quarter; i ++) {
             Prisoner prison = new Prisoner();
             prison.setStrategy(new RandomlyCooperate(prison));
             addAgent(prison);
+            sumPopulation++;
         }
         for (int i = 0; i < quarter; i ++) {
             Prisoner prison = new Prisoner();
             prison.setStrategy(new Tit4Tat(prison));
             addAgent(prison);
+            sumPopulation++;
         }
     }
 
@@ -87,10 +92,11 @@ public class PrisonerSimulation extends Simulation {
 
     @Override
     public String[] getStats() {
-        String[] stats = {"Cooperate avg fitness: " + String.valueOf(sumFitCoop / 4),
-                          "Cheat avg fitness: " + String.valueOf(sumFitCheat / 4),
-                          "RandomlyCooperate avg fitness: " + String.valueOf(sumFitRanCoop / 4),
-                          "Tit4Tat avg fitness: " + String.valueOf(sumFitTit4Tat / 4)};
+        int quarter = sumPopulation / 4;
+        String[] stats = {"Cooperate avg fitness: " + String.valueOf(sumFitCoop / quarter),
+                          "Cheat avg fitness: " + String.valueOf(sumFitCheat / quarter),
+                          "RandomlyCooperate avg fitness: " + String.valueOf(sumFitRanCoop / quarter),
+                          "Tit4Tat avg fitness: " + String.valueOf(sumFitTit4Tat / quarter)};
         return stats;
     }
 

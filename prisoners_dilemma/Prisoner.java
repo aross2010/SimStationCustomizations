@@ -33,7 +33,6 @@ public class Prisoner extends Agent {
         }
     }
 
-
     public void updateFitness(int amt){
         fitness += amt;
     }
@@ -79,5 +78,6 @@ public class Prisoner extends Agent {
             this.partnercheated = true;
             partner.partnercheated = true;
         }
+        System.out.println(this.getStrategy() + "  " + partner.getStrategy() + " " + this.getFitness() + " " + partner.getFitness());
     }
 }
