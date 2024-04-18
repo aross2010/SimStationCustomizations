@@ -8,6 +8,8 @@ import java.io.Serializable;
 
 
 public abstract class Agent implements Runnable, Serializable {
+
+    // the size of the simulation - can be edited here
     private final int MAX_XC = 500;
     private final int MAX_YC = 300;
 

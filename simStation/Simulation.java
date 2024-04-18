@@ -68,7 +68,7 @@ public class Simulation extends Model {
     private boolean isNeighbor(Agent a1, Agent a2, double radius) {
         // distance between agents - if distance less than radius, then neighbor
         double distance = Math.pow(a1.xc - a2.xc, 2) + Math.pow(a1.yc - a2.yc, 2);
-        return radius > distance;
+        return (radius > Math.sqrt(distance));
     }
 
     public Agent getNeighbor(Agent a, double radius) {

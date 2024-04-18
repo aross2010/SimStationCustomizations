@@ -5,8 +5,8 @@ import simStation.Agent;
 import simStation.Heading;
 
 public class Bird extends Agent {
-    public static final int MAX_SPEED = 10;
-    private final int RADIUS = 100;
+    public static final int MAX_SPEED = 5;
+    private final int RADIUS = 10;
 
     protected int speed;
 
@@ -14,6 +14,7 @@ public class Bird extends Agent {
         super();
         speed = Utilities.rng.nextInt(MAX_SPEED) + 1;
         heading = Heading.random();
+        System.out.println("" + speed + " " + heading);
     }
 
 

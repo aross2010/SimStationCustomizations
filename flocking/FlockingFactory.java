@@ -16,14 +16,5 @@ public class FlockingFactory extends SimStationFactory {
         return "Flocking Simulation";
     }
 
-    @Override
-    public String[] getHelp() {
-        return null;
-    }
-
-    @Override
-    public String about() {
-        return "Flocking Simulation";
-    }
 
 }
